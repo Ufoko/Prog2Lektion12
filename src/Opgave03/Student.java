@@ -1,12 +1,13 @@
 package Opgave03;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+public class Student implements Comparable<Student> {
 
     private final int studentNo;
     private String name;
-    private List<Integer> grades;
+    private List<Integer> grades = new ArrayList<Integer>();
 
 
     public Student(int studentNo, String name) {
@@ -36,10 +37,11 @@ public class Student {
     }
 
     public double getAverage() {
-        int avg = 0;
+        double avg = 0;
         for (Integer grade : grades) {
             avg += grade;
         }
+        avg /= grades.size();
         return avg;
     }
 
@@ -50,5 +52,10 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", grades=" + grades +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return studentNo - o.getStudentNo();
     }
 }

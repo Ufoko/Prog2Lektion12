@@ -1,23 +1,30 @@
 package Opgave03;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NavigableMap;
+import java.util.*;
 
 public class College {
     private String name;
-    private List<Student> students = new ArrayList<Student>();
+    private Map<Integer, Student> students = new LinkedHashMap<Integer, Student>();
 
     public void addStudent(Student student) {
-        students.add(student);
+        students.put(student.getStudentNo(), student);
     }
 
-    public void removeStudent(Student student) {
-        students.remove(student);
+    public int howManyStudents() {
+        return students.size();
+    }
+
+    public Map<Integer, Student> getStudents() {
+        return students;
+    }
+
+    public void removeStudent(Integer studentNo) {
+        students.remove(studentNo);
     }
 
     public Student findStudent(int studentNo) {
-        for (Student student : students) {
+
+        for (Student student : students.values()) {
             if (student.getStudentNo() == studentNo) {
                 return student;
             }
@@ -26,9 +33,10 @@ public class College {
     }
 
     public double calcAverage() {
-        int averageGrade = 0;
-        for (Student student : students) {
+        double averageGrade = 0;
+        for (Student student : students.values()) {
             averageGrade += student.getAverage();
+            System.out.println(averageGrade);
         }
         averageGrade /= students.size();
         return averageGrade;
