@@ -15,8 +15,7 @@ public class RangeIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        if (current < to-1) {
-            current++;
+        if (current < to) {
             return true;
         }
 
@@ -25,6 +24,6 @@ public class RangeIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        return current;
+        return current++;
     }
 }
