@@ -22,6 +22,8 @@ class StudentTest {
 
     @Test
     void compareTo() {
+        student1.com
+
 
     }
 
@@ -49,4 +51,6 @@ class StudentTest {
     @Test
     void getAverage() {
     }
+
+
 }

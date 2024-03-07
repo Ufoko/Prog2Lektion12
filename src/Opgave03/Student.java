@@ -1,9 +1,10 @@
 package Opgave03;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>, Comparator<Student> {
 
     private final int studentNo;
     private String name;
@@ -57,5 +58,10 @@ public class Student implements Comparable<Student> {
     @Override
     public int compareTo(Student o) {
         return studentNo - o.getStudentNo();
+    }
+
+    @Override
+    public int compare(Student student1, Student student2) {
+        return student1.getName().compareTo(student2.getName());
     }
 }
