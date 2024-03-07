@@ -2,7 +2,7 @@ package opgave02.models;
 
 import java.util.Iterator;
 
-public class Range implements Iterable<Integer>{
+public class Range implements Iterable<Integer> {
     private int from;
     private int to;
 
@@ -13,6 +13,6 @@ public class Range implements Iterable<Integer>{
 
     @Override
     public Iterator<Integer> iterator() {
-        return null;
+        return new RangeIterator(from, to);
     }
 }
